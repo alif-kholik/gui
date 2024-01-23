@@ -51,24 +51,24 @@ public class App {
         listKonser.add(new Konser("Bahaya Mantan Terindah",
                 "11 febuari 2024", 15, 400000, 25, 300000, 30, 200000, "bt.jpeg"));
 
-        // ============================ tiket 
+        // ============================ tiket
         ArrayList<ArrayList<Stack<Integer>>> listTiketParaKonser = new ArrayList<>();
         for (int i = 0; i < listKonser.size(); i++) {
             listTiketParaKonser.add(new ArrayList<>());
             listTiketParaKonser.get(i).add(new Stack<>());
-            for (int n = 1; n <= listKonser.get(i).jumlahTiketGold(); n++){
+            for (int n = 1; n <= listKonser.get(i).jumlahTiketGold(); n++) {
                 listTiketParaKonser.get(i).get(0).push(n);
             }
             listTiketParaKonser.get(i).add(new Stack<>());
-            for (int n = 1; n <= listKonser.get(i).jumlahTiketSilver(); n++){
+            for (int n = 1; n <= listKonser.get(i).jumlahTiketSilver(); n++) {
                 listTiketParaKonser.get(i).get(1).push(n);
             }
             listTiketParaKonser.get(i).add(new Stack<>());
-            for (int n = 1; n <= listKonser.get(i).jumlahTiketBroze(); n++){
+            for (int n = 1; n <= listKonser.get(i).jumlahTiketBroze(); n++) {
                 listTiketParaKonser.get(i).get(2).push(n);
             }
         }
-        
+
         // ===============================================================
         // Deklarasi
         JLabel judul, Rp;
@@ -76,6 +76,7 @@ public class App {
         Color abu = new Color(175, 181, 186);
         Color colorBtn = new Color(37, 50, 61);
         Color biru = new Color(0, 151, 255);
+        JPanel card;
 
         // =================== container open ======================
 
@@ -99,10 +100,11 @@ public class App {
 
         // =================== container closed ======================
 
-        // ============================= Cari konser hanya bermodalkan nama konser ============
+        // ============================= Cari konser hanya bermodalkan nama konser
+        // ============
         // ----------- membuat input cari konser
         JTextField inputCariKonser = new JTextField();
-        inputCariKonser.setBounds(460, 28, 400, 40);
+        inputCariKonser.setBounds(410, 28, 400, 40);
         inputCariKonser.setBackground(colorBtn);
         inputCariKonser.setBorder(null);
         inputCariKonser.setFont(new Font("poppins", Font.PLAIN, 16));
@@ -111,7 +113,7 @@ public class App {
         form.add(inputCariKonser);
         // ------------- membuat tombol cari konser
         JButton btnCariKonser = new JButton("Cari Konser");
-        btnCariKonser.setBounds(860, 28, 100, 40);
+        btnCariKonser.setBounds(810, 28, 100, 40);
         btnCariKonser.setBackground(biru);
         btnCariKonser.setOpaque(true);
         btnCariKonser.setBorder(null);
@@ -147,7 +149,6 @@ public class App {
         });
         form.add(btnCariKonser);
 
-
         // =================================================== card konser
         // ======================================================
         JButton[] btnPilihTicketArrayGold = new JButton[listKonser.size()];
@@ -162,7 +163,7 @@ public class App {
             form.add(img);
 
             // ================== text banner =======================
-            JPanel card = new JPanel();
+            card = new JPanel();
             card.setBounds(46 + i * 240, 266, 226, 145);
             card.setBackground(new Color(25, 37, 46));
             card.setLayout(null);
@@ -195,7 +196,7 @@ public class App {
 
             // Harga Konser
             JLabel labelRpGold = new JLabel("Rp.");
-            labelRpGold.setBounds(105, 65, 29, 14);
+            labelRpGold.setBounds(105, 55, 29, 14);
             labelRpGold.setFont(new Font("poppins", Font.BOLD, 12));
             labelRpGold.setForeground(Color.white);
             JLabel textHargaKonserGold = new JLabel(String.valueOf(listKonser.get(i).hargaTiketGold()));
@@ -204,7 +205,6 @@ public class App {
             textHargaKonserGold.setForeground(Color.white);
             card.add(textHargaKonserGold);
             card.add(labelRpGold);
-
 
             // Tombol Tombol Ticket -------- silver
             btnPilihTicketArraySilver[i] = new JButton("Silver");
@@ -268,7 +268,8 @@ public class App {
         // ==============================================
         // deklarasi
         JLabel lblNama, lblEmail, lblWA, h1, h2, lblJudul, lblTgl, lblPrice, lblJumlah, RpTotal, lblKuotaTiketTersedia;
-        JTextField formNama, formEmail, formWA, formJudul, formTgl, kategoritiketyangdipilih, formPrice, formTotal, jumlah, kuotaTikettersedia;
+        JTextField formNama, formEmail, formWA, formJudul, formTgl, kategoritiketyangdipilih, formPrice, formTotal,
+                jumlah, kuotaTikettersedia;
         JButton send, btnBeli;
         JLabel iyah = new JLabel();
         iyah.setText("iyah");
@@ -379,7 +380,8 @@ public class App {
         });
         shop.add(send);
 
-        // =========================================================== Form Beli Ticket ==========================
+        // =========================================================== Form Beli Ticket
+        // ==========================
         // Label Judul Konser
         lblJudul = new JLabel("Judul Konser");
         lblJudul.setBounds(489, 85, 200, 23);
@@ -415,7 +417,7 @@ public class App {
         shop.add(formTgl);
 
         // Label kategori dan Harga tiket
-        lblPrice = new JLabel("Kategori - Harga");
+        lblPrice = new JLabel("Ticket");
         lblPrice.setBounds(489, 165, 138, 23);
         lblPrice.setFont(new Font("poppins", Font.BOLD, 16));
         lblPrice.setForeground(Color.white);
@@ -453,7 +455,6 @@ public class App {
         kuotaTikettersedia.setBackground(colorBtn);
         kuotaTikettersedia.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 0));
         shop.add(kuotaTikettersedia);
-        
 
         // Label Jumlah
         lblPrice = new JLabel("Jumlah");
@@ -500,6 +501,7 @@ public class App {
                 }
 
             }
+
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -541,10 +543,13 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 int intJumlah = Integer.parseInt(jumlah.getText());
                 int intPrice = Integer.parseInt(formPrice.getText());
-                int intkategoritiket = 0; 
-                if (kategoritiketyangdipilih.getText().equals("Gold")) intkategoritiket = 0;
-                if (kategoritiketyangdipilih.getText().equals("Silver")) intkategoritiket = 1;
-                if (kategoritiketyangdipilih.getText().equals("Bronze")) intkategoritiket = 2;
+                int intkategoritiket = 0;
+                if (kategoritiketyangdipilih.getText().equals("Gold"))
+                    intkategoritiket = 0;
+                if (kategoritiketyangdipilih.getText().equals("Silver"))
+                    intkategoritiket = 1;
+                if (kategoritiketyangdipilih.getText().equals("Bronze"))
+                    intkategoritiket = 2;
                 int indexkonserygdipilih = 0;
 
                 int hargatotal = intPrice * intJumlah;
@@ -568,20 +573,21 @@ public class App {
                 } else if (formNama.isEnabled() == true) {
                     JOptionPane.showMessageDialog(form, "Data Pembeli Belum Tersimpan", "Alert",
                             JOptionPane.WARNING_MESSAGE);
-                } else if (Integer.parseInt(jumlah.getText()) > listTiketParaKonser.get(indexkonserygdipilih).get(intkategoritiket).size()) {
+                } else if (Integer.parseInt(jumlah.getText()) > listTiketParaKonser.get(indexkonserygdipilih)
+                        .get(intkategoritiket).size()) {
                     JOptionPane.showMessageDialog(form, "Kuota Tiket kurang / tidak tersedia", "Alert",
                             JOptionPane.WARNING_MESSAGE);
                 } else {
-                    
-                    // ==== tiket 
+
+                    // ==== tiket
                     // pop sebanyak tiket yang dibeli
-                    for (int i = 0; i < intJumlah; i++){
+                    for (int i = 0; i < intJumlah; i++) {
                         listTiketParaKonser.get(indexkonserygdipilih).get(intkategoritiket).pop();
                     }
                     // ======================= simpan transaksi =======================
                     Riwayat_transaksi.add(new Transaksi(formNama.getText(), Integer.valueOf(formWA.getText()),
                             formEmail.getText(), formJudul.getText(), intkategoritiket, intJumlah, hargatotal));
-                    // ---- 
+                    // ----
                     JOptionPane.showMessageDialog(form,
                             "Berhasil Membeli Ticket!!" + "\n" +
                                     "Ticket akan dikirimkan melalui email : "
