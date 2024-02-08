@@ -635,8 +635,6 @@ public class App {
                     formEmail.setEnabled(true);
                     formWA.setEnabled(true);
                     formTotal.setEnabled(true);
-                    System.out.println(Riwayat_transaksi);
-
                 }
 
             }
@@ -695,6 +693,32 @@ public class App {
                 }
             });
         }
+
+        // ------------- membuat tombol riwayat transaksi
+        JButton btn_riwayat = new JButton("Riwayat Transaksi");
+        btn_riwayat.setBounds(1060, 28, 140, 40);
+        btn_riwayat.setBackground(new Color(75,0,130));
+        btn_riwayat.setOpaque(true);
+        btn_riwayat.setBorder(null);
+        btn_riwayat.setForeground(Color.white);
+        btn_riwayat.setFont(new Font("poppins", Font.PLAIN, 16));
+        btn_riwayat.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btn_riwayat.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("============================= Riwayat Transaksi =======================");
+                for (Transaksi transaksi : Riwayat_transaksi) {
+                    System.out.println("Nama: " + transaksi.namanya + "\n" +
+                                       "Nomor HP: " + transaksi.nomorHp + "\n" +
+                                       "Email: " + transaksi.email + "\n" +
+                                       "Nama Konser: " + transaksi.nama_konsernya + "\n" +
+                                       "Kategori Tiket: " + ((transaksi.kategori_tiket == 0) ? "Gold" : ((transaksi.kategori_tiket == 1) ? "Silver" : "Bronze")) + "\n" +
+                                       "Jumlah Tiket: " + transaksi.jumlahTiketnya + "\n" +
+                                       "Total Harga: Rp " + transaksi.totalharga + "\n" +
+                                       "------------------------");
+                }
+            }
+        });
+        form.add(btn_riwayat);
 
         form.pack();
         // agar container tampil
