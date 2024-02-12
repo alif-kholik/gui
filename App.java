@@ -35,13 +35,13 @@ public class App {
         // ---------- array untuk menyimpan objek peserta dan konser
         LinkedList<Peserta> listPeserta = new LinkedList<>();
         ArrayList<Konser> listKonser = new ArrayList<>();
-        
+
         // ----------- riwayat transaksi
         Queue<Transaksi> Riwayat_transaksi = new LinkedList<>();
 
         // Menambahkan objek konser ke Array
         listKonser.add(new Konser("Play Music Festival", "23 januari 2024", 13, 500000,
-                17, 300000, 1, 200000, "tulus.jpeg"));
+                17, 300000, 3, 200000, "tulus.jpeg"));
         listKonser.add(new Konser("West Java Festival", "11 febuari 2024", 10, 400000,
                 20, 300000, 22, 200000, "wjf.jpeg"));
         listKonser.add(new Konser("Coolab Fest", "1 januari 2024", 7, 500000, 18,
@@ -71,9 +71,7 @@ public class App {
 
         // ===============================================================
         // Deklarasi
-        JLabel judul, Rp;
         JPanel shop;
-        Color abu = new Color(175, 181, 186);
         Color colorBtn = new Color(37, 50, 61);
         Color biru = new Color(0, 151, 255);
         JPanel card;
@@ -133,31 +131,32 @@ public class App {
                         if (listKonser.get(i).namaKonser().equalsIgnoreCase(inputCariKonser.getText())) {
                             konserDitemukan = true;
                             // Membuat teks pesan dengan format yang rapi
-                           // Data konser
-                           String namaKonser = listKonser.get(i).namaKonser();
-                           String tglKonser = listKonser.get(i).tglKonser();
-                           int jumlahTiketGold = listKonser.get(i).jumlahTiketGold();
-                           int hargaTiketGold = listKonser.get(i).hargaTiketGold();
-                           int jumlahTiketSilver = listKonser.get(i).jumlahTiketSilver();
-                           int hargaTiketSilver = listKonser.get(i).hargaTiketSilver();
-                           int jumlahTiketBronze = listKonser.get(i).jumlahTiketBroze();
-                           int hargaTiketBronze = listKonser.get(i).hargaTiketBroze();
-                           
-                           // Membuat teks pesan dengan format yang rapi
-                           String message = String.format(
-                                           "Nama Konser: %s\n" +
-                                           "Tanggal Konser: %s\n\n" +
-                                           "Tiket Gold: %d tiket, Harga: Rp %,d\n" +  
-                                           "Tiket Silver: %d tiket, Harga: Rp %,d\n" + 
-                                           "Tiket Bronze: %d tiket, Harga: Rp %,d\n\n",
-                                   namaKonser, tglKonser,
-                                   jumlahTiketGold, hargaTiketGold,
-                                   jumlahTiketSilver, hargaTiketSilver,
-                                   jumlahTiketBronze, hargaTiketBronze);
-                           
-                           // Menampilkan pesan dialog
-                           JOptionPane.showMessageDialog(null, message, "Informasi Konser", JOptionPane.INFORMATION_MESSAGE);
-                           
+                            // Data konser
+                            String namaKonser = listKonser.get(i).namaKonser();
+                            String tglKonser = listKonser.get(i).tglKonser();
+                            int jumlahTiketGold = listKonser.get(i).jumlahTiketGold();
+                            int hargaTiketGold = listKonser.get(i).hargaTiketGold();
+                            int jumlahTiketSilver = listKonser.get(i).jumlahTiketSilver();
+                            int hargaTiketSilver = listKonser.get(i).hargaTiketSilver();
+                            int jumlahTiketBronze = listKonser.get(i).jumlahTiketBroze();
+                            int hargaTiketBronze = listKonser.get(i).hargaTiketBroze();
+
+                            // Membuat teks pesan dengan format yang rapi
+                            String message = String.format(
+                                    "Nama Konser: %s\n" +
+                                            "Tanggal Konser: %s\n\n" +
+                                            "Tiket Gold: %d tiket, Harga: Rp %,d\n" +
+                                            "Tiket Silver: %d tiket, Harga: Rp %,d\n" +
+                                            "Tiket Bronze: %d tiket, Harga: Rp %,d\n\n",
+                                    namaKonser, tglKonser,
+                                    jumlahTiketGold, hargaTiketGold,
+                                    jumlahTiketSilver, hargaTiketSilver,
+                                    jumlahTiketBronze, hargaTiketBronze);
+
+                            // Menampilkan pesan dialog
+                            JOptionPane.showMessageDialog(null, message, "Informasi Konser",
+                                    JOptionPane.INFORMATION_MESSAGE);
+
                             break; // Keluar dari loop setelah menemukan konser
                         }
                     }
@@ -218,7 +217,7 @@ public class App {
             btnPilihTicketArrayGold[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             card.add(btnPilihTicketArrayGold[i]);
 
-            // Harga Konser
+            // Harga Konser Gold
             JLabel labelRpGold = new JLabel("Rp.");
             labelRpGold.setBounds(105, 55, 29, 14);
             labelRpGold.setFont(new Font("poppins", Font.BOLD, 12));
@@ -241,7 +240,7 @@ public class App {
             btnPilihTicketArraySilver[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             card.add(btnPilihTicketArraySilver[i]);
 
-            // Harga Konser
+            // Harga Konser Silver
             JLabel labelRpSilver = new JLabel("Rp.");
             labelRpSilver.setBounds(105, 85, 29, 14);
             labelRpSilver.setFont(new Font("poppins", Font.BOLD, 12));
@@ -264,7 +263,7 @@ public class App {
             btnPilihTicketArrayBronze[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             card.add(btnPilihTicketArrayBronze[i]);
 
-            // Harga Konser
+            // Harga Konser Bronze
             JLabel labelRpBronze = new JLabel("Rp.");
             labelRpBronze.setBounds(105, 115, 29, 14);
             labelRpBronze.setFont(new Font("poppins", Font.BOLD, 12));
@@ -697,24 +696,27 @@ public class App {
         // ------------- membuat tombol riwayat transaksi
         JButton btn_riwayat = new JButton("Riwayat Transaksi");
         btn_riwayat.setBounds(1060, 28, 140, 40);
-        btn_riwayat.setBackground(new Color(75,0,130));
+        btn_riwayat.setBackground(new Color(75, 0, 130));
         btn_riwayat.setOpaque(true);
         btn_riwayat.setBorder(null);
         btn_riwayat.setForeground(Color.white);
-        btn_riwayat.setFont(new Font("poppins", Font.PLAIN, 16));
+        btn_riwayat.setFont(new Font("poppins", Font.PLAIN, 14));
         btn_riwayat.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn_riwayat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("============================= Riwayat Transaksi =======================");
                 for (Transaksi transaksi : Riwayat_transaksi) {
                     System.out.println("Nama: " + transaksi.namanya + "\n" +
-                                       "Nomor HP: " + transaksi.nomorHp + "\n" +
-                                       "Email: " + transaksi.email + "\n" +
-                                       "Nama Konser: " + transaksi.nama_konsernya + "\n" +
-                                       "Kategori Tiket: " + ((transaksi.kategori_tiket == 0) ? "Gold" : ((transaksi.kategori_tiket == 1) ? "Silver" : "Bronze")) + "\n" +
-                                       "Jumlah Tiket: " + transaksi.jumlahTiketnya + "\n" +
-                                       "Total Harga: Rp " + transaksi.totalharga + "\n" +
-                                       "------------------------");
+                            "Nomor HP: " + transaksi.nomorHp + "\n" +
+                            "Email: " + transaksi.email + "\n" +
+                            "Nama Konser: " + transaksi.nama_konsernya + "\n" +
+                            "Kategori Tiket: "
+                            + ((transaksi.kategori_tiket == 0) ? "Gold"
+                                    : ((transaksi.kategori_tiket == 1) ? "Silver" : "Bronze"))
+                            + "\n" +
+                            "Jumlah Tiket: " + transaksi.jumlahTiketnya + "\n" +
+                            "Total Harga: Rp " + transaksi.totalharga + "\n" +
+                            "------------------------");
                 }
             }
         });
